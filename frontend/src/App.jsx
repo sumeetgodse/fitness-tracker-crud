@@ -1,7 +1,7 @@
-export const App=()=> {
-  return (
-    <h1>Fitness Tracker!</h1>
-  )
-}
+import { Container } from "./components/Container/Container";
 
-export default App
+export const App = () => {
+  return <Container />;
+};
+
+export default App;
