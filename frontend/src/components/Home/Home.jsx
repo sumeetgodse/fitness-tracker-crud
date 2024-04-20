@@ -17,18 +17,27 @@ export const Home = () => {
     <div>
       <AppBar position="static">
         <Toolbar>
+          <img
+            style={{ height: "35px", width: "35px", marginRight: "1%" }}
+            src={"../../../public/fitness.png"}
+          />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             BurnIt - Fitness Tracker
           </Typography>
           {user ? (
             <>
               Welcome {user}
+              <img
+                style={{ height: "30px", width: "30px" }}
+                src={"../../../public/hello.png"}
+              />
               <Button
                 color="inherit"
                 onClick={() => {
                   localStorage.removeItem("username");
                   setUser("");
                 }}
+                style={{ border: "1px solid white", marginLeft: "1%" }}
               >
                 Logout
               </Button>
@@ -40,6 +49,7 @@ export const Home = () => {
                 onClick={() => {
                   navigate("/login");
                 }}
+                style={{ border: "1px solid white" }}
               >
                 Login
               </Button>
@@ -48,6 +58,7 @@ export const Home = () => {
                 onClick={() => {
                   navigate("/register");
                 }}
+                style={{ border: "1px solid white", marginLeft: "1%" }}
               >
                 Register
               </Button>
