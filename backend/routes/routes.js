@@ -1,5 +1,6 @@
 const express = require('express');
 const userModel = require('../model/userModel');
+const activityModel = require('../model/activityModel');
 
 const router = express.Router()
 
@@ -36,5 +37,34 @@ router.post('/login', async (req, res) => {
         return res.status(400).json({
             message: "LOGIN_FAILED"
         });
+    }
+})
+
+// log a new activity
+router.post('/log-new-activity', async (req, res) => {
+    const data = new activityModel({
+        username: req.body.username,
+        date: req.body.date,
+        activityType: req.body.activityType,
+        duration: req.body.duration,
+        distance: req.body.distance,
+        caloriesBurned: req.body.caloriesBurned
+    })
+    try {
+        const dataToSave = await data.save();
+        res.status(200).json(dataToSave)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+})
+
+// get all activities for a user
+router.get('/get-activities/:username', async (req, res) => {
+    try {
+        const activities = await activityModel.find()
+        res.status(200).json(activities.filter((activity) => activity.username === req.params.username))
+    } catch (error) {
+        res.status(400).json({ message: error.message })
     }
 })

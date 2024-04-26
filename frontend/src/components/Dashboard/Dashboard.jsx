@@ -1,10 +1,14 @@
-import { Tab, Tabs } from "@mui/material";
+import { Snackbar, Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 import { WorkoutPlans } from "../WorkoutPlans/WorkoutPlans";
 import { ActivityLogging } from "../ActivityLogging/ActivityLogging";
 
 export const Dashboard = ({ user }) => {
   const [tabval, setTabval] = useState(0);
+  const [notification, setNotification] = useState({
+    isOpen: false,
+    message: "",
+  });
   return (
     <div
       style={{ margin: "1%", border: "1px solid #bdbdbd", minHeight: "90dvh" }}
@@ -21,8 +25,16 @@ export const Dashboard = ({ user }) => {
       {tabval === 0 ? (
         <WorkoutPlans />
       ) : tabval === 1 ? (
-        <ActivityLogging />
+        <ActivityLogging setNotification={setNotification} />
       ) : null}
+      <Snackbar
+        open={notification.isOpen}
+        autoHideDuration={3000}
+        onClose={() => {
+          setNotification({ isOpen: false, message: "" });
+        }}
+        message={notification.message}
+      />
     </div>
   );
 };
