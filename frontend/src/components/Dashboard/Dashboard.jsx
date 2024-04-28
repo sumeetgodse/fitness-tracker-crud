@@ -19,13 +19,13 @@ export const Dashboard = ({ user }) => {
           setTabval(newValue);
         }}
       >
-        <Tab label="Workout Plans" value={0} />
-        <Tab label="Activity Logging" value={1} />
+        <Tab label="My Activities" value={0} />
+        <Tab label="Workout Plans" value={1} />
       </Tabs>
       {tabval === 0 ? (
-        <WorkoutPlans />
-      ) : tabval === 1 ? (
         <ActivityLogging setNotification={setNotification} />
+      ) : tabval === 1 ? (
+        <WorkoutPlans />
       ) : null}
       <Snackbar
         open={notification.isOpen}

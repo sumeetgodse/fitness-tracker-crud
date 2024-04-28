@@ -68,9 +68,9 @@ export const ActivityModal = ({ open, setOpen, setNotification }) => {
 
   return (
     <Dialog
-      open={open}
+      open={open.open && open.type === "add"}
       onClose={() => {
-        setOpen(false);
+        setOpen({ open: false, type: "" });
       }}
     >
       <DialogTitle>Add a new activity </DialogTitle>
@@ -150,7 +150,7 @@ export const ActivityModal = ({ open, setOpen, setNotification }) => {
               username: localStorage.getItem("username"),
               date: new Date().toISOString(),
             });
-            setOpen(false);
+            setOpen({ open: false, type: "" });
           }}
           variant="contained"
           size="small"
@@ -160,7 +160,7 @@ export const ActivityModal = ({ open, setOpen, setNotification }) => {
         </Button>
         <Button
           onClick={() => {
-            setOpen(false);
+            setOpen({ open: false, type: "" });
           }}
           variant="contained"
           size="small"

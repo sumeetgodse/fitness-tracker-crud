@@ -68,3 +68,13 @@ router.get('/get-activities/:username', async (req, res) => {
         res.status(400).json({ message: error.message })
     }
 })
+
+// delete an activity
+router.delete('/delete-activity/:activityId', async (req, res) => {
+    try {
+        const deletedActivity = await activityModel.findByIdAndDelete(req.params.activityId)
+        res.status(200).json(deletedActivity)
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+})
