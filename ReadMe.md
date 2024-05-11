@@ -1,5 +1,7 @@
 # Fitness tracker application
 
+#### Demo - https://youtu.be/JWo5uiZplDk?si=ff1w_qC1T6c7l-Fd
+
 An application developed for fitness enthusiasts to track their fitness journey easily.
 
 #### FSAD Assignment 1
@@ -26,6 +28,17 @@ Please refer `frontend` and `backend` `README.md` files for individual setup.
 #### Workout Plans
 ![image](https://github.com/2023mt93091/fitness-tracker/assets/166995152/e055d3c9-4732-4205-b893-f660b917cf95)
 ![image](https://github.com/2023mt93091/fitness-tracker/assets/166995152/186530f3-a7db-4879-aaf4-3e869f68ce40)
+
+#### Nutrition Tracking
+
+##### My Nutrition Data
+![image](https://github.com/2023mt93091/fitness-tracker/assets/166995152/88344f6a-85ff-4dd2-acab-9b4d32cdac19)
+
+##### Add new nutrition tracking data
+![image](https://github.com/2023mt93091/fitness-tracker/assets/166995152/86b089ba-639b-48ac-ba7a-b235579eb9ea)
+
+##### Delete nutrition tracking data
+![image](https://github.com/2023mt93091/fitness-tracker/assets/166995152/6939785d-0a23-4ac1-ba44-a5e21c197485)
 
 #### Register
 ![image](https://github.com/2023mt93091/fitness-tracker/assets/166995152/e651da23-8bb5-4a4c-82a9-43309ca50754)
