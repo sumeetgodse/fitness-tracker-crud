@@ -2,6 +2,7 @@ import { Snackbar, Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 import { WorkoutPlans } from "../WorkoutPlans/WorkoutPlans";
 import { ActivityLogging } from "../ActivityLogging/ActivityLogging";
+import { NutritionTracking } from "../NutritionTracking/NutritionTracking";
 
 export const Dashboard = ({ user }) => {
   const [tabval, setTabval] = useState(0);
@@ -21,11 +22,14 @@ export const Dashboard = ({ user }) => {
       >
         <Tab label="My Activities" value={0} />
         <Tab label="Workout Plans" value={1} />
+        <Tab label="Nutrition Tracking" value={2} />
       </Tabs>
       {tabval === 0 ? (
         <ActivityLogging setNotification={setNotification} />
       ) : tabval === 1 ? (
         <WorkoutPlans />
+      ) : tabval === 2 ? (
+        <NutritionTracking setNotification={setNotification} />
       ) : null}
       <Snackbar
         open={notification.isOpen}

@@ -1,6 +1,7 @@
 const express = require('express');
 const userModel = require('../model/userModel');
 const activityModel = require('../model/activityModel');
+const nutritionModel = require('../model/nutritionModel');
 
 const router = express.Router()
 
@@ -74,6 +75,43 @@ router.delete('/delete-activity/:activityId', async (req, res) => {
     try {
         const deletedActivity = await activityModel.findByIdAndDelete(req.params.activityId)
         res.status(200).json(deletedActivity)
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+})
+
+// add a new nutrition intake
+router.post('/add-new-nutrition', async (req, res) => {
+    const data = new nutritionModel({
+        username: req.body.username,
+        meal: req.body.meal,
+        calories: req.body.calories,
+        date: req.body.date
+    })
+    try {
+        const dataToSave = await data.save();
+        res.status(200).json(dataToSave)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+})
+
+// get all nutrition tracking data for a user
+router.get('/get-nutrition/:username', async (req, res) => {
+    try {
+        const nutritions = await nutritionModel.find()
+        res.status(200).json(nutritions.filter((nutrition) => nutrition.username === req.params.username))
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+})
+
+// delete an nutrition tracking data
+router.delete('/delete-nutrition/:nutritionId', async (req, res) => {
+    try {
+        const deletedNutrition = await nutritionModel.findByIdAndDelete(req.params.nutritionId)
+        res.status(200).json(deletedNutrition)
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
