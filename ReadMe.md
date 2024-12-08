@@ -1,3 +1,8 @@
+## TODO
+## 1. Improve security
+## 2. Deploy on cloud. Use netlify/vercel/firebase/back4app/etc...
+## 3. Improve sharing feature
+
 # Fitness tracker application
 
 #### Demo - https://youtu.be/JWo5uiZplDk?si=ff1w_qC1T6c7l-Fd
@@ -5,7 +10,6 @@
 An application developed for fitness enthusiasts to track their fitness journey easily.
 
 #### FSAD Assignment 1
-#### Group 12
 
 Please refer `frontend` and `backend` `README.md` files for individual setup.
 
